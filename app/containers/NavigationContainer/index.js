@@ -13,8 +13,13 @@ import { requestTopics } from './actions';
 export class NavigationContainer extends React.Component {
   // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
-    requestTopics: React.propTypes.func.isRequired
+    requestTopics: React.PropTypes.func.isRequired
   };
+
+  componentWillMount() {
+    this.props.requestTopics();
+  }
+
   render() {
     return (
       <div>
@@ -28,7 +33,7 @@ const mapStateToProps = selectNavigationContainer();
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch
+    requestTopics: () => dispatch(requestTopics())
   };
 }
 
