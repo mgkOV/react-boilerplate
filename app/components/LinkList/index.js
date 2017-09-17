@@ -5,24 +5,25 @@
 */
 
 import React from 'react';
+import Link from '../Link';
 
 import styles from './styles.css';
 
-function LinkList({ links }) {
-  const linkNodes = links.map(l =>
-    <div key={l.id}>
-      {l.url} - {l.description}
-    </div>
-  );
+function LinkList({ links, topicName }) {
+  const linkNodes = links.map(l => <Link key={l.id} link={l} />);
 
   return (
     <div className={styles.linkList}>
+      <h1>
+        {topicName}
+      </h1>
       {linkNodes}
     </div>
   );
 }
 
 LinkList.propTypes = {
+  topicName: React.PropTypes.string.isRequired,
   links: React.PropTypes.arrayOf(
     React.PropTypes.shape({
       id: React.PropTypes.string.isRequired,

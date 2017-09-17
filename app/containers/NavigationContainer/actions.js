@@ -7,8 +7,9 @@
 import {
   REQUEST_TOPICS,
   REQUEST_TOPICS_SUCCEEDED,
-  REQUEST_TOPICS_FAILD,
-  SELECT_TOPIC
+  REQUEST_TOPICS_FAILED,
+  SELECT_TOPIC,
+  TOGGLE_DRAWER
 } from './constants';
 
 export const requestTopics = () => ({
@@ -21,11 +22,15 @@ export const requestTopicsSucceeded = topics => ({
 });
 
 export const requestTopicsFailed = message => ({
-  type: REQUEST_TOPICS_FAILD,
-  topics
+  type: REQUEST_TOPICS_FAILED,
+  message
 });
 
 export const selectTopic = topic => ({
   type: SELECT_TOPIC,
   topic
+});
+
+export const toggleDrawer = () => ({
+  type: TOGGLE_DRAWER
 });

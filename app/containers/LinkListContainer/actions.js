@@ -4,7 +4,11 @@
  *
  */
 
-import { REQUEST_LINKS_SUCCEEDED, REQUEST_LINKS_FAILED } from './constants';
+import {
+  REQUEST_LINKS_SUCCEEDED,
+  REQUEST_LINKS_FAILED,
+  REQUEST_LINKS
+} from './constants';
 
 export const requestLinksSucceeded = links => ({
   type: REQUEST_LINKS_SUCCEEDED,
@@ -14,4 +18,9 @@ export const requestLinksSucceeded = links => ({
 export const requestLinksFailed = message => ({
   type: REQUEST_LINKS_FAILED,
   message
+});
+
+export const requestLinks = topicName => ({
+  type: REQUEST_LINKS,
+  topicName
 });
